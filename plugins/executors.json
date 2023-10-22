@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "wrapped-serve": {
+      "implementation": "./executor",
+      "schema": "./schema.json",
+      "description": "wrapped-serve executor"
+    }
+  }
+}

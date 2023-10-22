@@ -1,0 +1,34 @@
+{
+  "name": "shell-with-remotes-e2e",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react/with-remotes/shell-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/react/with-remotes/shell-e2e/cypress.config.ts",
+        "devServerTarget": "shell-with-remotes:serve:development",
+        "testingType": "e2e",
+        "baseUrl": "http://localhost:4200"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "shell-with-remotes:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "shell-with-remotes:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react/with-remotes/shell-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["shell-with-remotes"]
+}
